@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /data
+Disallow: github-listeners
+
+User-agent: Mediapartners-Google
+Allow: /
