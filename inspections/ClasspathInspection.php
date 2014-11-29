@@ -57,7 +57,7 @@ class ClasspathInspection implements Inspection{
 			$result->warning("Namespace declaration <code>$namespaceDec</code> not found");
 		}
 		$superclass = "(\\\\pocketmine\\\\plugin\\\\)?PluginBase";
-		if(preg_match_all("#use pocketmine\\\\plugin\\\\PluginBase as ([A-Za-z0-9_]+) ?;", $code, $matches)){
+		if(preg_match_all("#use pocketmine\\\\plugin\\\\PluginBase as ([A-Za-z0-9_]+) ?;#i", $code, $matches)){
 			$alias = $matches[1][0];
 			$superclass = "($superclass)|($alias)";
 		}
