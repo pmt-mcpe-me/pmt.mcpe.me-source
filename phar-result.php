@@ -76,6 +76,7 @@ foreach($inspections as $inspection){
 }
 
 echo "</ul>";
+echo "<p>End of inspections</p>"
 the_end:
 ?>
 </body></html>
