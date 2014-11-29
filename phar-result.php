@@ -6,6 +6,11 @@
 use inspections\ClasspathInspection;
 
 include "functions.php";
+if(!isset($_FILES["file"])){
+	http_response_code(400);
+	echo "Page must be accessed by POST with upload file entry 'file'";
+	return;
+}
 $file = $_FILES["file"];
 if($file["error"] !== 0){
 	echo "<h1>Failure</h1>";
