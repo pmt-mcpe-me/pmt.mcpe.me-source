@@ -51,7 +51,7 @@ class ClasspathInspection implements Inspection{
 		$code = preg_replace("/[\r\n\t ]+/m", " ", file_get_contents($mainClassFile));
 		$tokens = explode("\\", $mainClass);
 		$simpleName = $tokens[count($tokens) - 1];
-		$namespace = implode(" ", array_slice($mainClass, 0, -1));
+		$namespace = implode(" ", array_slice($tokens, 0, -1));
 		$namespaceDec = "namespace $namespace";
 		if(strpos($code, $namespaceDec) === false){
 			$result->warning("Namespace declaration <code>$namespaceDec</code> not found");

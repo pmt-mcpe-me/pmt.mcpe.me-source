@@ -1,6 +1,5 @@
-<html><head><title>PocketMine Plugin Making Tools</title></head><body>
-<h1>PocketMine-MP Plugin Making Tools</h1>
-<ul>
-<li><a href="phar.php">Phar maker</a></li>
-</ul>
-</body></html>
+<html><head><title>PocketMine Plugin Making Tools</title></head>
+<frameset rows="200,*">
+	<frame src="pocketmine-frame-up.php" name="index" scrolling="on">
+	<frame src="phar.php" name="content">
+</frameset>
