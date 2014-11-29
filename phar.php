@@ -22,5 +22,6 @@
 			</p>
 			<p><input type="submit" value="create phar"></p>
 		</form>
+		<!--Server under maintenance. Please come back later.-->
 	</body>
 </html>
