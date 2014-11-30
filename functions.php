@@ -259,3 +259,21 @@ function phar_addDir(Phar $phar, $include, $realpath){
 		$phar->addFile($file, $relative);
 	}
 }
+
+function usage_inc($key, &$timestamp){
+	if(!is_file("data/data.json")){
+		$data = ["time" => time()];
+	}
+	else{
+		$data = json_decode(file_get_contents("data/data.json"), true);
+	}
+	if(!isset($data[$key])){
+		$data[$key] = 1;
+	}
+	else{
+		$data[$key]++;
+	}
+	file_put_contents("data/data.json", json_encode($data, JSON_PRETTY_PRINT | JSON_BIGINT_AS_STRING));
+	$timestamp = $data["time"];
+	return $data[$key];
+}

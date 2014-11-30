@@ -22,7 +22,7 @@
 			</p>
 			<p><input type="submit" value="create phar"></p>
 		</form>
-		<p>New: use the frames page <a href="pocketmine.php">here</a> if you are not already using.</p>
+		<p>New: use the frames page <a href="pm.php" target="_parent">here</a> if you are not already using.</p>
 		<!--Server under maintenance. Please come back later.-->
 	</body>
 </html>

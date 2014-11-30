@@ -59,6 +59,32 @@ echo <<<EOP
 <p><a href="$gzPath">You can also download this GZIP-compressed archive.</a> It is smaller in size to download, but you have to extract it yourself.</p>
 <p>The download link is available for at least two hours.</p>
 EOP;
+$cnt = usage_inc("pharbuild", $time);
+$diff = time() - $time;
+$itv = "";
+if($diff >= 3600 * 24){
+	$itv .= ((int) ($diff / (3600 * 24))) . " day(s), ";
+	$diff %= 3600 * 24;
+	while($diff < 0){
+		$diff += 3600 * 24;
+	}
+}
+if($diff >= 3600){
+	$itv .= ((int) ($diff / 3600)) . " hour(s), ";
+	$diff %= 3600;
+	while($diff < 0){
+		$diff += 3600;
+	}
+}
+if($diff >= 60){
+	$itv .= ((int) ($diff / 60)) . " minute(s), ";
+	$diff %= 60;
+	while($diff < 0){
+		$diff += 60;
+	}
+}
+$itv .= "$diff second(s)";
+echo "<p>In the past $itv, $cnt phars have been created.</p>";
 echo "<hr>";
 echo "<h2>Inspections</h2>";
 echo "<ul>";
