@@ -95,7 +95,7 @@ function rand_intToChar($int){
 	return "_";
 }
 
-function utils_getURL($page, $timeout = 2){
+function utils_getURL($page, $timeout = 2, $port = 80){
 	echo "initializing curl channel for $page... ";
 	$ch = curl_init($page);
 	echo "done\r\n";
@@ -105,6 +105,7 @@ function utils_getURL($page, $timeout = 2){
 	curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
 	curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, "Apache/2.4.10 (Win32) OpenSSL/1.0.1h PHP/5.6.3");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, (int) $timeout);
 	echo "getting $page...";
@@ -112,6 +113,9 @@ function utils_getURL($page, $timeout = 2){
 	echo " done, closing... ";
 	curl_close($ch);
 	echo "done\r\n";
+	echo "Length: " . strlen($ret) . "\r\n";
+	echo $ret;
+	echo "\r\n";
 	return $ret;
 }
 
