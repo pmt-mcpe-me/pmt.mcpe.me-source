@@ -1,6 +1,7 @@
 <html>
 	<head><title>Create phar</title></head>
 	<body>
+		<h2>Phar maker</h2>
 		<h3>How to use</h3>
 		<ol>
 			<li>Write your plugin, of course :D</li>
