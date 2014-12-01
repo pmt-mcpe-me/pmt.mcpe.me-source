@@ -68,6 +68,39 @@ function deldir($dir){
 	rmdir($dir);
 }
 
+const PRIV_DATA = "C:\\Apache24\\privdata\\";
+@mkdir(PRIV_DATA);
+
+function start_session($data = [], $timeout = 7200){
+	while(is_file($path = PRIV_DATA . ($id = randomClass(32, "")) . ". json"));
+	$array = [
+		"creation" => time(),
+		"lastUpdate" => time(),
+		"timeout" => $timeout,
+		"id" => $id,
+		"data" => $data
+	];
+	file_put_contents($path, json_encode($array, JSON_PRETTY_PRINT));
+	return $id;
+}
+function save_session($id, $data){
+	$path = PRIV_DATA . "$id.json";
+	if(!is_file($id)){
+		return false;
+	}
+	$array = json_decode(file_get_contents($path), true);
+	$array["data"] = $data;
+	$array["lastUpdate"] = time();
+	file_put_contents($path, json_encode($array, JSON_PRETTY_PRINT));
+	return true;
+}
+function read_session($id){
+	if(!is_file($path = PRIV_DATA . "$id.json")){
+		return false;
+	}
+	return file_get_contents($path);
+}
+
 function randomClass($length, $init = "_"){
 	$output = $init;
 	for($i = 1; $i < $length; $i++){
