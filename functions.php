@@ -95,7 +95,7 @@ function rand_intToChar($int){
 	return "_";
 }
 
-function utils_getURL($page, $timeout = 2, $port = 80){
+function utils_getURL($page, $timeout = 2){
 	echo "initializing curl channel for $page... ";
 	$ch = curl_init($page);
 	echo "done\r\n";
@@ -114,8 +114,6 @@ function utils_getURL($page, $timeout = 2, $port = 80){
 	curl_close($ch);
 	echo "done\r\n";
 	echo "Length: " . strlen($ret) . "\r\n";
-	echo $ret;
-	echo "\r\n";
 	return $ret;
 }
 
