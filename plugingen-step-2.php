@@ -16,7 +16,7 @@ $sessionId = start_session($data);
 ?>
 
 <html><head><title>Plugin Generator</title></head><body>
-<form action="step-3.php" method="post">
+<form action="plugingen-step-3.php" method="post">
 <?php
 echo '<input type="hidden" name="ses_id" value="$sessionId">';
 ?>

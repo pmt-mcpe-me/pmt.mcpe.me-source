@@ -1,10 +1,10 @@
 <html><head>
 	<title>PocketMine-MP Zekkou Cake Plugin Generator</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/validateForm.js"></script>
-	<script src="js/addFormContent.js"></script>
+	<script src="pgjs/validateForm.js"></script>
+	<script src="pgjs/addFormContent.js"></script>
 </head><body>
-	<form method="POST" action="step-2.php">
+	<form method="POST" action="plugingen-step-2.php">
 		<h3>Step 1: Plugin Information</h3>
 		<p id="p_name">Plugin name: <input type="text" name="name" value="ExamplePlugin" id="_name"></p>
 		<p id="p_author">Your name: <input type="text" name="author" value="Anonymous" id="_author"></p>
