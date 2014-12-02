@@ -36,6 +36,9 @@ else{
 function exec_gc(){
 	$exp = time() - 7200;
 	foreach(scandir(DATA_PATH . "phars/") as $file){
+		if(substr($file, -9) === "index.php"){
+			continue;
+		}
 		$file = DATA_PATH . "phars/$file";
 		if(is_file($file)){
 			$time = filemtime($file);
