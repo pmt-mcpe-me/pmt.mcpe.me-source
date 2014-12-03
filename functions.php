@@ -294,6 +294,7 @@ function phar_addDir(Phar $phar, $include, $realpath){
 			continue;
 		}
 		$relative = rtrim($include, "/\\") . "/" . ltrim(substr(realpath($file), strlen($realpath)), "/\\");
+		echo "Adding file $file to include path $relative\r\n";
 		$phar->addFile($file, $relative);
 	}
 }
