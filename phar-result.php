@@ -92,6 +92,10 @@ echo "<ul>";
 /** @var inspections\Inspection[] $inspections */
 $inspections = [];
 $dir = $result["extractpath"];
+if(!isset($_POST["inspection_classpath"])){
+	echo "<li>Warning: inspection_classpath POST field not found!</li>";
+	$_POST["inspection_classpath"] = "off";
+}
 if($_POST["inspection_classpath"] === "on"){
 	$inspections[] = new ClasspathInspection($dir);
 }
