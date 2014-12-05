@@ -11,7 +11,7 @@ $projects = [];
 foreach(scandir(".") as $owner){
 	if(trim($owner, ".") !== "" and is_dir($owner)){
 		foreach(scandir($owner) as $project){
-			if(trim($project, ".") !== "" and is_dir($owner)){
+			if(trim($project, ".") !== "" and is_dir("$owner/$project")){
 				$projects[] = "$owner/$project";
 			}
 		}
