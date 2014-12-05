@@ -1,5 +1,7 @@
 github-listeners
-data
+data/phars
+data/builds/*/
+!data/builds/js
 gc_last
 .idea
 private
