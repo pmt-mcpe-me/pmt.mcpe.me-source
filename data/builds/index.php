@@ -86,7 +86,7 @@ foreach($projects as $fullName){
 		}
 		echo "</td>";
 		echo "<td align='center'><a href='$path'>Download $commit</a></td>";
-		echo "<td align='center'><a href='https://github.com/$fullName/tree/$commit'>$date</a></td>";
+		echo "<td align='center'><a href='https://github.com/$fullName/tree/$commit' target='_blank'>$date</a></td>";
 		echo "<td align='center'><a href='$path.gz'>Download</a></td>";
 		echo "</tr>\n";
 	}
