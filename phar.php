@@ -1,7 +1,7 @@
 <html>
 	<head><title>Create phar</title></head>
-	<body>
-		<h2>Phar maker</h2>
+	<body><font face="Comic Sans MS">
+		<h1>Phar maker</h1>
 		<h3>How to use</h3>
 		<ol>
 			<li>Write your plugin, of course :D</li>
@@ -9,7 +9,7 @@
 			<li>Create a ZIP file and throw your structure into it. You can put it anywhere inside the ZIP file, but only the folder with plugin.yml (and subfolders) will be included.</li>
 			<li>Upload that file below :)</li>
 		</ol>
-		<form method="post" action="phar-result.php" enctype="multipart/form-data">
+		<form method="post" action="/phar-result.php" enctype="multipart/form-data">
 			<p><input type="file" name="file"></p>
 			<p>Stub (Leave as default unless you know what it is):
 				<?php
@@ -25,5 +25,5 @@
 		</form>
 		<p>New: use the frames page <a href="pm.php" target="_parent">here</a> if you are not already using.</p>
 		<!--Server under maintenance. Please come back later.-->
-	</body>
+	</font></body>
 </html>

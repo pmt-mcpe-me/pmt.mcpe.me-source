@@ -4,6 +4,10 @@ Disallow: /data/builds/LegendOfMCPE
 Disallow: /data/data.json
 Disallow: /data/sessions
 Disallow: /github-listeners
+Disallow: /phar-result.php
+Disallow: /unpharResult.php
+Disallow: /empty.php
+Disallow: /functions.php
 
 User-agent: Mediapartners-Google
 Allow: /

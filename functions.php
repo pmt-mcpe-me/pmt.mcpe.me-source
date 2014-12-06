@@ -206,9 +206,7 @@ function phar_buildFromZip($zipPath){
 		}
 		return $result;
 	}
-	$dir = TMP_PATH;
-	for($i = 0; file_exists($dir . "$i\\"); $i++);
-	mkdir($dir = $dir . "$i\\");
+	$dir = getTmpDir();
 	if($zip->extractTo($dir) !== true){
 		$result["error"] = MAKEPHAR_ERROR_EXTRACTZIP;
 		$result["error_id"] = false;
@@ -294,6 +292,75 @@ function phar_addDir(Phar $phar, $include, $realpath){
 	}
 }
 
+function unphar_toZip($tmpName, &$result){
+	$result = [
+		"tmpDir" => null,
+		"zipPath" => null,
+		"zipRelativePath" => null,
+		"error" => false
+	];
+	rename($tmpName, "$tmpName.phar");
+	$tmpName .= ".phar";
+	try{
+		$phar = new Phar($tmpName);
+		$result["tmpDir"] = $tmpDir = getTmpDir();
+		$phar->extractTo($tmpDir);
+		$zip = new ZipArchive;
+		$dir = "data/phars/";
+		while(is_file($file = "C:\\Apache24\\htdocs\\" . ($rel = $dir . randomClass(16, "zip") . ".zip")));
+		$result["zipPath"] = $file;
+		$result["zipRelativePath"] = $rel;
+		$err = $zip->open($file, ZipArchive::CREATE);
+		if($err !== true){
+			$msg = "Error creating zip file: ";
+			switch($err){
+				case ZipArchive::ER_EXISTS:
+					$msg .= "ER_EXISTS ($err) File already exists ($file)";
+					break;
+				case ZipArchive::ER_INCONS:
+					$msg .= "ER_INCONS ($err) Zip archive inconsistent.";
+					break;
+				case ZipArchive::ER_INVAL:
+					$msg .= "ER_INVAL ($err) Invalid argument.";
+					break;
+				case ZipArchive::ER_MEMORY:
+					$msg .= "ER_MEMORY ($err) Malloc failure.";
+					break;
+				case ZipArchive::ER_NOENT:
+					$msg .= "ER_NOENT ($err) No such file.";
+					break;
+				case ZipArchive::ER_NOZIP:
+					$msg .= "ER_NOZIP ($err) Not a zip archive.";
+					break;
+				case ZipArchive::ER_OPEN:
+					$msg .= "ER_OPEN ($err) Can't open file.";
+					break;
+				case ZipArchive::ER_READ:
+					$msg .= "ER_READ ($err) Read error.";
+					break;
+				case ZipArchive::ER_SEEK:
+					$msg .= "ER_SEEK ($err) Seek error.";
+			}
+			throw new RuntimeException($msg . " Dump: " . var_export($result, true));
+		}
+		$tmpDir = realpath($tmpDir);
+		foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($tmpDir)) as $file){
+			if(!is_file($file)){
+				continue;
+			}
+			$file = realpath($file);
+			$rel = substr($file, strlen($tmpDir) + 1);
+			$zip->addFile($file, $rel);
+		}
+		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT));
+		$zip->close();
+	}
+	catch(Exception $e){
+		echo "<code>" . get_class($e) . ": {$e->getMessage()}</code>";
+		$result["error"] = true;
+	}
+}
+
 function usage_inc($key, &$timestamp){
 	if(!is_file("data/data.json")){
 		$data = ["time" => time()];
@@ -310,4 +377,12 @@ function usage_inc($key, &$timestamp){
 	file_put_contents("data/data.json", json_encode($data, JSON_PRETTY_PRINT | JSON_BIGINT_AS_STRING));
 	$timestamp = $data["time"];
 	return $data[$key];
+}
+
+function getTmpDir(){
+	$dir = "C:\\Apache24\\tmp\\";
+	for($i = 0; file_exists($dir . $i); $i++);
+	$dir .= "$i\\";
+	mkdir($dir);
+	return $dir;
 }

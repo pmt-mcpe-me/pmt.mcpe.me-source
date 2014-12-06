@@ -1,6 +1,6 @@
 <html><head>
 	<title>Phar creation result</title>
-</head><body>
+</head><body><font face="Comic Sans MS">
 <?php
 
 use inspections\ClasspathInspection;
@@ -109,4 +109,4 @@ echo "</ul>";
 echo "<p>End of inspections</p>";
 the_end:
 ?>
-</body></html>
+</font></body></html>
