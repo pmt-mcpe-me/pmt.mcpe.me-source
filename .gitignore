@@ -1,6 +1,5 @@
 github-listeners
 data/data.json
-data/phars
 data/builds/*/
 !data/builds/js
 gc_last

@@ -1,6 +1,9 @@
 User-agent: *
-Disallow: /data
-Disallow: github-listeners
+Disallow: /data/phars
+Disallow: /data/builds/LegendOfMCPE
+Disallow: /data/data.json
+Disallow: /data/sessions
+Disallow: /github-listeners
 
 User-agent: Mediapartners-Google
 Allow: /
