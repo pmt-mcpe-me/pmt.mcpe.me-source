@@ -31,7 +31,7 @@ if(isset($_GET["branches"]) and $_GET["branches"] !== "*"){
 foreach($projects as $fullName){
 	echo "<br><hr>";
 	$id = "top-" . str_replace("/", "-", $fullName);
-	echo "<h2><a name='top-$fullName' id='$id'>$fullName</a></h2>";
+	echo "<h2><a name='top-$fullName' id='$id' href='https://github.com/$fullName' target='_blank'>$fullName</a></h2>";
 	echo "<table border='1' width='1000'>";
 	echo "<tr>";
 	echo "<th><font color='#FF4000'>Branch</font> / <font color='#44DF00'>Pull Request</font></th>";
@@ -55,7 +55,7 @@ foreach($projects as $fullName){
 	foreach($files as $time => $file){
 		$branch = $file["branch"];
 		$b_ = $branch;
-		if(substr($branch, 0, 1) === "#"){
+		if($isPr = (substr($branch, 0, 1) === "#")){
 			$b_ = "pr";
 		}
 		if(isset($allowedBranches) and !in_array($b_, $allowedBranches)){
@@ -68,11 +68,12 @@ foreach($projects as $fullName){
 		$commit = $file["commit"];
 		$date = date("M j, Y \\a\\t H:i:s \\U\\T\\C", $time);
 		echo "<td align='center'>";
-		if(substr($branch, 0, 1) === "#"){
-			echo "<font color='#44DF00'>$branch</font>";
+		if($isPr){
+			$url = "https://github.com/$fullName/pulls/" . substr($branch, 1);
+			echo "<font color='#44DF00'><a href='$url' target='_blank'>$branch</a></font>";
 		}
 		elseif($branch !== "master"){
-			echo "<font color='#FF4000'>$branch</font>";
+			echo "<a href='https://github.com/$fullName/tree/$branch' target='_blank'><font color='#FF4000'>$branch</font></a>";
 		}
 		elseif(!isset($_GET["master_only"])){
 			echo $branch;
