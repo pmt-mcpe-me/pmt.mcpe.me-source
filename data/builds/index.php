@@ -7,7 +7,7 @@
 <body bgcolor="#f0ffff"><font face="Comic Sans MS">
 <h1>Plugin Builds</h1>
 <p><b>About branches/pull requests</b>: Plugins are developed at the <code>master</code> branch. If you see branches other than <code>master</>, they usually contain code that is unstable but adds new features to the plugin. Once they are stable or finished, they will be merged into the <code>master</code> branch. Therefore, you are discouraged to use non-<code>master</code>-branch builds.<br>
-Builds of pull requests are built from code modified by other people on GitHub (or from other branches). They may be dangerous. Look into that pull request's link for details. You are encouraged to use <a href="?branches=master"><code>master</code> branch builds only</a>.
+Builds of pull requests are built from code modified by other people on GitHub (or from other branches). They may be dangerous. Look into that pull request's link for details. You are encouraged to use <a href="?branches=master"><code>master</code> branch builds only</a>.</p>
 <?php
 $projects = [];
 foreach(scandir(".") as $owner){
