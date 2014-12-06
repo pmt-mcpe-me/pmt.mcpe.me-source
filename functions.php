@@ -21,12 +21,13 @@ spl_autoload_register(function($class){
 	require_once dirname(__FILE__) . "\\" . $class . ".php";
 });
 
-if(is_file("gc_last")){
-	$last = (int) file_get_contents("gc_last");
+const gc_last = "C:\\Apache24\\htdocs\\gc_last";
+if(is_file(gc_last)){
+	$last = (int) file_get_contents(gc_last);
 	$diff = time() - $last;
 	if($diff > 3600){
 		exec_gc();
-		unlink("gc_last");
+		unlink(gc_last);
 	}
 }
 else{
@@ -48,7 +49,7 @@ function exec_gc(){
 		}
 	}
 	deltmp();
-	file_put_contents("gc_last", (string) time());
+	file_put_contents(gc_last, (string) time());
 }
 
 function deltmp(){

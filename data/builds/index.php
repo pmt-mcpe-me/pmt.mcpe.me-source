@@ -6,9 +6,13 @@
 </head>
 <body bgcolor="#f0ffff"><font face="Comic Sans MS">
 <h1>Plugin Builds</h1>
-<p><b>About branches/pull requests</b>: Plugins are developed at the <code>master</code> branch. If you see branches other than <code>master</code>, they usually contain code that is unstable but adds new features to the plugin. Once they are stable or finished, they will be merged into the <code>master</code> branch. Therefore, you are discouraged to use non-<code>master</code>-branch builds.<br>
-Builds of pull requests are built from code modified by other people on GitHub (or from other branches). They may be dangerous. Look into that pull request's link for details. You are encouraged to use <a href="?branches=master"><code>master</code> branch builds only</a>.</p>
+<p>
+	<b>About branches/pull requests</b>: Plugins are developed at the <code>master</code> branch. If you see branches other than <code>master</code>, they usually contain code that is unstable but adds new features to the plugin. Once they are stable or finished, they will be merged into the <code>master</code> branch. Therefore, you are discouraged to use non-<code>master</code>-branch builds.<br>
+	Builds of pull requests are built from code modified by other people on GitHub (or from other branches). They may be dangerous. Look into that pull request's link for details. You are encouraged to use <a href="?branches=master"><code>master</code> branch builds only</a>.<br>
+	Some repos may not have <code>master</code> as their default branch. Non-default branches will be in red, so only builds of the default branch will be available.
+</p>
 <?php
+include "../../functions.php";
 $projects = [];
 foreach(scandir(".") as $owner){
 	if(trim($owner, ".") !== "" and is_dir($owner)){
@@ -29,9 +33,11 @@ if(isset($_GET["branches"]) and $_GET["branches"] !== "*"){
 	$allowedBranches = explode(",", $_GET["branches"]);
 }
 foreach($projects as $fullName){
+	$defaultBranch = json_decode(utils_getURL("https://api.github.com/repos/$fullName"), true)["default_branch"];
 	echo "<br><hr>";
 	$id = "top-" . str_replace("/", "-", $fullName);
 	echo "<h2><a name='top-$fullName' id='$id' href='https://github.com/$fullName' target='_blank'>$fullName</a></h2>";
+	echo "<p>Default branch: <code>$defaultBranch</code></p>";
 	echo "<table border='1' width='1000'>";
 	echo "<tr>";
 	echo "<th><font color='#FF4000'>Branch</font> / <font color='#44DF00'>Pull Request</font></th>";
@@ -69,18 +75,18 @@ foreach($projects as $fullName){
 		$date = date("M j, Y \\a\\t H:i:s \\U\\T\\C", $time);
 		echo "<td align='center'>";
 		if($isPr){
-			$url = "https://github.com/$fullName/pulls/" . substr($branch, 1);
-			echo "<font color='#44DF00'><a href='$url' target='_blank'>$branch</a></font>";
+			$url = "https://github.com/$fullName/pull/" . substr($branch, 1);
+			echo "<a href='$url' target='_blank'><font color='#44DF00'>$branch</font></a>";
 		}
-		elseif($branch !== "master"){
+		elseif($branch !== $defaultBranch){
 			echo "<a href='https://github.com/$fullName/tree/$branch' target='_blank'><font color='#FF4000'>$branch</font></a>";
 		}
-		elseif(!isset($_GET["master_only"])){
+		else{
 			echo $branch;
 		}
 		echo "</td>";
 		echo "<td align='center'><a href='$path'>Download $commit</a></td>";
-		echo "<td align='center'>$date</td>";
+		echo "<td align='center'><a href='https://github.com/$fullName/tree/$commit'>$date</a></td>";
 		echo "<td align='center'><a href='$path.gz'>Download</a></td>";
 		echo "</tr>\n";
 	}
