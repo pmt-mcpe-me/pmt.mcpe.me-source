@@ -304,7 +304,12 @@ function unphar_toZip($tmpName, &$result){
 	try{
 		$phar = new Phar($tmpName);
 		$result["tmpDir"] = $tmpDir = getTmpDir();
-		$phar->extractTo($tmpDir);
+		$pharPath = "phar://{$phar->getPath()}/";
+		foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($pharPath)) as $f){
+			$subpath = substr($f, strlen($pharPath));
+			@mkdir(dirname($realSubpath = $tmpDir . $subpath), 0777, true);
+			copy($f, $realSubpath);
+		}
 		$zip = new ZipArchive;
 		$dir = "data/phars/";
 		while(is_file($file = "C:\\Apache24\\htdocs\\" . ($rel = $dir . randomClass(16, "zip") . ".zip")));
@@ -356,7 +361,7 @@ function unphar_toZip($tmpName, &$result){
 		$zip->close();
 	}
 	catch(Exception $e){
-		echo "<code>" . get_class($e) . ": {$e->getMessage()}</code>";
+		echo "<code>" . get_class($e) . ": {$e->getMessage()} at {$e->getFile()}:{$e->getLine()}</code>";
 		$result["error"] = true;
 	}
 }
