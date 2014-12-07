@@ -355,7 +355,7 @@ function unphar_toZip($tmpName, &$result){
 			}
 			$file = realpath($file);
 			$rel = substr($file, strlen($tmpDir) + 1);
-			$zip->addFile($file, $rel);
+			$zip->addFile($file, str_replace("\\", "/", $rel));
 		}
 		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT));
 		$zip->close();
