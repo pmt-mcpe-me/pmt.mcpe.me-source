@@ -14,3 +14,17 @@ Please allow read/write access to the parent directory of the document root of t
 
 A GitHub service client\_id + client\_secret is required to be set up at /var/www/cid.txt and /var/www/secret.txt
 
+A GitHub API access token for any valid account (without any scopes required) is required at /var/www/token.txt
+
+All these three files should contain the tokens/secrets in plaintext. No trimming would be done by the PHP script.
+
+You are recommended to add a file `.git/.htaccess` with the content:
+
+```htaccess
+deny from all
+```
+
+for the sake of security.
+
+This website generates files at /var/www/html/insta/data/ without deleting them. If you find the directory too resource-consuming, please add a cronjob yourself to clean it.
+
