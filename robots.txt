@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /data/*
+Disallow: /phar-result.php
+Disallow: /unpharResult.php
+Disallow: /functions.php
+Disallow: /gc_last
+Disallow: /inspections/*
+Disallow: /TuneArgs.php
+
+User-agent: Mediapartners-Google
+Allow: /

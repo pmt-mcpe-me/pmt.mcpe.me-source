@@ -1,0 +1,35 @@
+body{
+	margin: 20px 20%;
+	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+}
+header{
+	font-style: italic;
+	padding-bottom: 20px;
+}
+ul.gistlist{
+	display: inline;
+}
+li.gistlistitem{
+	padding: 10px;
+	border: groove;
+	border-radius: 10%;
+}
+code{
+	font-family: monospace;
+	background-color: #C0C0C0;
+	font-size: 1.2em;
+}
+button{
+	border-radius: 20%;
+	background-color: #30FF30;
+	cursor: hand;
+}
+textarea{
+	border-radius: 10%;
+}
+span.lang-data{
+	cursor: none;
+}
+.title{
+	padding-bottom: 0;
+}

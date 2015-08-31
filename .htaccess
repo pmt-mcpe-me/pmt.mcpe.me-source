@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+AddType application/octet-stream .phar
+Options -Indexes
+ErrorDocument 404 /err_pages/404.php
+ErrorDocument 403 /err_pages/403.php
+RewriteEngine On
+RewriteRule ^pm(/.*)?$ pocketmine.php
+RewriteRule ^err_pages/?$ err_pages/403.php
+RewriteRule ^(data/phars/([^\.]+)(\.[a-z]+))/.*$ /$1
+RewriteRule ^(index.php)?$ /pocketmine.php
+RewriteRule ^pg/viewSrc\.php/(.*)$ /pg/viewSrc.php?path=$1
+RewriteRule ^pg/viewSrc/(.*)$ /pg/viewSrc.php?path=$1
+RewriteRule ^(pg/([^\.]+)(\.[a-z]+))/.*$ /$1
+

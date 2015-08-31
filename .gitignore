@@ -1,0 +1,6 @@
+*.phar
+/data/data.json
+gc_last
+.idea
+!favicon.ico
+/pg_/

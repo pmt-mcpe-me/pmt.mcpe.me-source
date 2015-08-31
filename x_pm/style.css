@@ -1,0 +1,50 @@
+html{
+	background-image: url("style/bgimg.png");
+}
+body{
+	margin: 40px 50px;
+	border: ridge;
+	padding: 40px 30px;
+	border-radius: 10%;
+	background-color: rgba(250, 234, 215, 0.90);
+	font-family: Helvetica, sans-serif;
+}
+.title{
+	text-align: center;
+	font-weight: 900;
+	font-size: xx-large;
+}
+ul.list{
+	text-align: center;
+	font-size: larger;
+}
+ul.list li{
+	list-style-type: none;
+	padding: 10px 0;
+	margin: 10px 0;
+	background-color: palegreen;
+	cursor: hand;
+	text-decoration: underline;
+}
+p{
+	line-height: 150%;
+}
+code.code{
+	background-color: rgba(224, 224, 224, 0.90);
+	font-family: monospace;
+	font-size: 130%;
+}
+a{
+	font-style: italic;
+}
+.hint{
+	background-color: #F0F0F0;
+}
+.button{
+	padding: 5px;
+	border-radius: 10%;
+	cursor: hand;
+}
+li.checkbox{
+	display: block;
+}
