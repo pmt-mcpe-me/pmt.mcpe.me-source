@@ -10,7 +10,7 @@ pemapmodder.zapto.org source (partial)
 ## Installation
 Clone this repo at the **document root** of your website. It is because some hyperlinks explicitly indicate as `/file.php`. Assuming `/var/www/html` in this page.
 
-Please allow read/write access to the parent directory of the document root of the website, i.e. `/var/www`. I do that with `chmod -R www-data:www-data /var/www`.
+Please allow read/write access to the parent directory of the document root of the website, i.e. `/var/www`. I do that with `chown -R www-data:www-data /var/www`.
 
 A GitHub service client\_id + client\_secret is required to be set up at `/var/www/cid.txt` and `/var/www/secret.txt`. The service should redirect the clien to `/insta/accessToken.php`.
 
