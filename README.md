@@ -12,7 +12,7 @@ Clone this repo at the **document root** of your website. It is because some hyp
 
 Please allow read/write access to the parent directory of the document root of the website, i.e. `/var/www`. I do that with `chmod -R www-data:www-data /var/www`.
 
-A GitHub service client\_id + client\_secret is required to be set up at /var/www/cid.txt and /var/www/secret.txt
+A GitHub service client\_id + client\_secret is required to be set up at `/var/www/cid.txt` and `/var/www/secret.txt`. The service should redirect the clien to `/insta/accessToken.php`.
 
 A GitHub API access token for any valid account (without any scopes required) is required at /var/www/token.txt
 
