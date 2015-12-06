@@ -27,18 +27,24 @@ function urlGet($url, $post = false, $postFields = []){
 $name = $_REQUEST["name"];
 $version = $_REQUEST["version"];
 $api = $_REQUEST["api"];
+$namespace = (is_numeric($_SESSION["github_login"]{0}) ? "_" : "") . str_replace("-", "_", $_SESSION["github_login"]) . "\\" . $name;
+$main = $namespace . "\\" . "Main";
+$config = isset($_REQUEST["config"]) and $_REQUEST["config"] == "on";
+$configCode = $config ? ('    $this->saveDefaultConfig();' . "\n") : "";
+$skeletons = (int) $_REQUEST["skeletons"];
+$tasks = (int) $_REQUEST["tasks"];
+$schedules = [];
+$scheduleCode = "";
+for($i = 1; $i <= $tasks; $i++){
+	$schedules[] = $taskName = "My" . $i . "PluginTask";
+	$scheduleCode .= '    $this->getServer()->getScheduler()->scheduleDelayedRepeatingTask(new ' . $taskName . '($this), 20); // TODO update the interval' . "\n";
+}
+$skeletonNames = [];
+for($i = 1; $i <= $tasks; $i++){
+	$skeletonNames[] = "My" . $i . "Class";
+}
 
-$files = [
-	"plugin.yml" => ["content" => yaml_emit([
-		"name" => $name,
-		"author" => $_SESSION["github_name"],
-		"version" => $version,
-		"api" => [$api],
-		"main" => $main = ($namespace = "_" . str_replace("-", "_", $_SESSION["github_login"]) . "\\" . $name) . "\\" . "Main",
-		"commands" => [],
-		"permissions" => []
-	])],
-	"src--" . str_replace("\\", "--", $main) . ".php" => ["content" => <<<EOF
+$mainContent = <<<EOF
 <?php
 namespace $namespace;
 use pocketmine\\command\\CommandSender;
@@ -48,20 +54,74 @@ use pocketmine\\plugin\\PluginBase;
 
 class Main extends PluginBase{
   public function onEnable(){
-    // \$this->getServer()->getPluginManager()->registerEvents(\$this, \$this);
-  }
+$configCode    // \$this->getServer()->getPluginManager()->registerEvents(\$this, \$this);
+$scheduleCode  }
   public function onCommand(CommandSender \$issuer, Command \$cmd, \$label, array \$params){
     switch(\$cmd->getName()){
     }
     return false;
   }
 }
-EOF
-	]
+
+EOF;
+
+$files = [
+	"plugin.yml" => [
+		"content" => yaml_emit([
+			"name" => $name,
+			"author" => $_SESSION["github_name"],
+			"version" => $version,
+			"api" => [$api],
+			"main" => $main,
+			"commands" => [],
+			"permissions" => [],
+		]),
+	],
+	"src--" . str_replace("\\", "--", $main) . ".php" => [
+		"content" => $mainContent,
+	],
 ];
+
+foreach($schedules as $className){
+	$c = <<<EOF
+<?php
+namespace $namespace;
+use pocketmine\\plugin\\PluginTask;
+
+class $className extends PluginTask{
+  public function __construct(Main \$main){
+    \$this->main = \$main;
+  }
+  public function onRun(\$ticks){
+    // TODO Implement
+  }
+}
+
+EOF;
+	$files["src--" . str_replace("\\", "--", $namespace) . "--$className.php"] = ["content" => $c];
+}
+
+foreach($skeletonNames as $className){
+	$c = <<<EOF
+<?php
+namespace $namespace;
+
+class $className{
+  public function __construct(){
+    // TODO Implement
+  }
+}
+
+EOF;
+	$files["src--" . str_replace("\\", "--", $namespace) . "--$className.php"] = ["content" => $c];
+}
 
 $data = json_decode(urlGet("https://api.github.com/gists", true, json_encode([
 	"description" => "$name - Auto-generated gist plugin stub by pmt.mcpe.me InstaPlugin",
-	"files" => $files
+	"files" => $files,
 ])));
+if(!isset($data->id)){
+	echo json_encode($data, JSON_PRETTY_PRINT);
+	return;
+}
 header("Location: https://gist.github.com/" . $_SESSION["github_login"] . "/$data->id/edit");

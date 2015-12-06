@@ -43,7 +43,7 @@ $MAKEPHAR_ERROR_MESSAGES = [
 	MAKEPHAR_ERROR_NO_PLUGIN_YML => "Cannot find <code>plugin.yml</code> anywhere inside the ZIP"
 ];
 spl_autoload_register(function($class){
-	$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php";
+	$file = __DIR__ . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php";
 	if(is_file($file)){
 		require_once $file;
 	}
