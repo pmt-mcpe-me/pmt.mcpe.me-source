@@ -31,7 +31,8 @@ class SyntaxErrorInspection{
 		$good = 0;
 		$bad = 0;
 		foreach(new \RegexIterator(new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->dir)), "#\\.php\$#") as $file){
-			exec("php -l $file 2>&1", $out);
+			$ef = escapeshellarg($file);
+			exec("php -l $ef 2>&1", $out);
 			$lint = implode("<br>", $out);
 			if(strpos($lint, "No syntax errors detected in") === 0){
 				$good++;
