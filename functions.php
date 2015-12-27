@@ -461,7 +461,12 @@ function unphar_toZip($tmpName, &$result, $name = ""){
 			$rel = substr($file, strlen($tmpDir) + 1);
 			$zip->addFile($file, str_replace("\\", "/", $rel));
 		}
-		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT));
+		$metadata = $phar->getMetadata();
+		if(isset($metadata["me.mcpe.pmt"])){
+			$result["pmt"] = $metadata["me.mcpe.pmt"];
+			$metadata["me.mcpe.pmt"] = "<pmt.mcpe.me metadata hidden>";
+		}
+		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 		$zip->close();
 	}
 	catch(Exception $e){
