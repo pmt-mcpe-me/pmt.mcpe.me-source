@@ -1,5 +1,5 @@
 <?php
-
+@define("STDERR", fopen("php://stderr", "wt"));
 session_start();
 if(!isset($_SESSION["access_token"])){
 	$_SESSION["state"] = $state = bin2hex(openssl_random_pseudo_bytes(8));
@@ -128,7 +128,8 @@ if(OPTIMIZE_ENABLED){
 	foreach($ret as $gist){
 		$files = $gist["files"];
 		if(isset($files["plugin.yml"])){
-			$manifest = yaml_parse_url($files["plugin.yml"]["raw_url"]);
+			$yamlCont = urlGet($files["plugin.yml"]["raw_url"]);
+			$manifest = yaml_parse($yamlCont);
 			$langs = [];
 			foreach($files as $file){
 				if(!isset($langs[$file["language"]])){
