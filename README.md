@@ -2,7 +2,7 @@
 Source code for http://pmt.mcpe.me (partial)
 
 ## Requirements
-* At least PHP 5.6 (default PHP 5 installation on apt is PHP 5.5, make sure to install PHP 5.6 instead)
+* At least PHP 5.6 (default PHP 5 installation on apt is PHP 5.5, make sure to install PHP 5.6 instead), PHP 7.0+ _recommended_
 * PHP YAML extension
 * PHP cURL extension
 * probably other things that I forgot
