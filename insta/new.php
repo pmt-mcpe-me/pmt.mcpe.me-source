@@ -29,7 +29,7 @@ $version = $_REQUEST["version"];
 $api = $_REQUEST["api"];
 $namespace = (is_numeric($_SESSION["github_login"]{0}) ? "_" : "") . str_replace("-", "_", $_SESSION["github_login"]) . "\\" . $name;
 $main = $namespace . "\\" . "Main";
-$config = isset($_REQUEST["config"]) and $_REQUEST["config"] == "on";
+$config = (isset($_REQUEST["config"]) and $_REQUEST["config"] == "on");
 $configCode = $config ? ('    $this->saveDefaultConfig();' . "\n") : "";
 $skeletons = (int) $_REQUEST["skeletons"];
 $tasks = (int) $_REQUEST["tasks"];
@@ -99,6 +99,9 @@ class $className extends PluginTask{
 
 EOF;
 	$files["src--" . str_replace("\\", "--", $namespace) . "--$className.php"] = ["content" => $c];
+}
+if($config){
+	$files["resources--config.yml"] = "---\n\n...\n";
 }
 
 foreach($skeletonNames as $className){

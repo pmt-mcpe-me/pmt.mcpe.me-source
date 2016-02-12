@@ -11,6 +11,7 @@ RewriteRule ^(index.php)?$ /pocketmine.php
 RewriteRule ^pg/viewSrc\.php/(.*)$ /pg/viewSrc.php?path=$1
 RewriteRule ^pg/viewSrc/(.*)$ /pg/viewSrc.php?path=$1
 RewriteRule ^(pg/([^\.]+)(\.[a-z]+))/.*$ /$1
+RewriteRule ^pmb/dl/(.+).phar$ /pmb/dl.php?branch=$1
 RewriteCond %{REQUEST_URI} !/robots\.txt$ [nocase]
 RewriteRule \.txt$  -  [forbidden,last]
 

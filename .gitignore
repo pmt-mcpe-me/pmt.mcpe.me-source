@@ -1,8 +1,11 @@
 *.phar
 /data/data.json
 gc_last
-.idea
+.idea/
 !favicon.ico
 /pg_/
 /github*/
 *.zip
+/pmb/
+/nowhere/
+
