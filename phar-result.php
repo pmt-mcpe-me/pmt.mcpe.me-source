@@ -126,6 +126,14 @@ if(!$jsonExpected):
 		"expiry" => time() + 7200,
 		"inspections" => []
 	];
+<h1>Phar has been successfully created.</h1>
+<p><a href="$url">Download the phar here</a>, or download with an alternative name:</p>
+<iframe width="500" src="/data/dlPhar.php?path=$basename"></iframe>
+<p>The download link is available for at least two hours.</p>
+EOP;
+	echo "<p>In the past $itv, $cnt phars have been created.</p>";
+	echo "<hr>";
+	echo "<h2>Inspections</h2>";
 	foreach($inspections as $inspection){
 		$result = $inspection->run();
 		if(!$jsonExpected){
@@ -138,17 +146,6 @@ if(!$jsonExpected):
 		echo json_encode($jsonData);
 		die;
 	}
-	echo <<<EOP
-<h1>Phar has been successfully created.</h1>
-<p><a href="$url">Download the phar here</a>, or download with an alternative name:</p>
-<iframe width="500" src="/data/dlPhar.php?path=$basename"></iframe>
-<p>The download link is available for at least two hours.</p>
-EOP;
-	echo "<p>In the past $itv, $cnt phars have been created.</p>";
-	echo "<hr>";
-	echo "<h2>Inspections</h2>";
-	echo "<ul>";
-	echo "</ul>";
 	echo "<p>End of inspections</p>";
 	?>
 	<p>You are also recommended to check the phar file at <a href="http://www.pocketmine.net/pluginReview.php"
