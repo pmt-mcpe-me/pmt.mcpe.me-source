@@ -121,20 +121,15 @@ if(!$jsonExpected):
 	if($_POST["inspection_lint"] === "on"){
 		$inspections[] = new SyntaxErrorInspection($dir);
 	}
-	$jsonData = [
-		"phar" => "http://pmt.mcpe.me" . $url,
-		"expiry" => time() + 7200,
-		"inspections" => []
-	];
-	foreach($inspections as $inspection){
-		$result = $inspection->run();
-		if(!$jsonExpected){
-			$result->htmlEcho();
-		}else{
-			$jsonData["inspections"][$result->getName()] = $result->jsonResult();
-		}
-	}
 	if($jsonExpected){
+		$jsonData = [
+			"phar" => "http://pmt.mcpe.me" . $url,
+			"expiry" => time() + 7200,
+			"inspections" => []
+		];
+		foreach($inspections as $inspection){
+			$jsonData["inspections"][$result->getName()] = $inspection->run()->jsonResult();
+		}
 		echo json_encode($jsonData);
 		die;
 	}
@@ -148,6 +143,9 @@ EOP;
 	echo "<hr>";
 	echo "<h2>Inspections</h2>";
 	echo "<ul>";
+	foreach($inspections as $inspection){
+		$inspection->run()->htmlEcho();
+	}
 	echo "</ul>";
 	echo "<p>End of inspections</p>";
 	?>
