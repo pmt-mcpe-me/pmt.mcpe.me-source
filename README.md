@@ -1,8 +1,8 @@
 # web-server-source
-pemapmodder.zapto.org source (partial)
+Source code for http://pmt.mcpe.me (partial)
 
 ## Requirements
-* PHP 5.6 (yes, and the default PHP 5 installation on Ubuntu is PHP 5.5)
+* At least PHP 5.6 (default PHP 5 installation on apt is PHP 5.5, make sure to install PHP 5.6 instead), PHP 7.0+ _recommended_
 * PHP YAML extension
 * PHP cURL extension
 * probably other things that I forgot
