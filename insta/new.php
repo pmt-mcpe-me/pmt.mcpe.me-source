@@ -101,7 +101,7 @@ EOF;
 	$files["src--" . str_replace("\\", "--", $namespace) . "--$className.php"] = ["content" => $c];
 }
 if($config){
-	$files["resources--config.yml"] = "---\n\n...\n";
+	$files["resources--config.yml"] = ["content" => "---\n\n...\n"];
 }
 
 foreach($skeletonNames as $className){
@@ -119,12 +119,14 @@ EOF;
 	$files["src--" . str_replace("\\", "--", $namespace) . "--$className.php"] = ["content" => $c];
 }
 
-$data = json_decode(urlGet("https://api.github.com/gists", true, json_encode([
+$data = json_decode($jsonIn = urlGet("https://api.github.com/gists", true, $jsonOut = json_encode([
 	"description" => "$name - Auto-generated gist plugin stub by pmt.mcpe.me InstaPlugin",
 	"files" => $files,
 ])));
 if(!isset($data->id)){
-	echo json_encode($data, JSON_PRETTY_PRINT);
+	header("Content-Type: text/plain");
+	echo "Request:\r\n===$jsonOut\r\n";;
+	echo "Response:\r\n===$jsonIn\r\n";;
 	return;
 }
 header("Location: https://gist.github.com/" . $_SESSION["github_login"] . "/$data->id/edit");
