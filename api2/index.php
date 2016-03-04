@@ -35,7 +35,7 @@ if(isset($_FILES["phar"])){
 	exit;
 }
 ?>
-<<html><head>
+<html><head>
 	<title>Plugin API version bumper</title>
 </head>
 <body>
