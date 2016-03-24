@@ -1,5 +1,5 @@
 <html><head><title>PocketMine Plugin Making Tools</title></head>
-<body><font face="Comic Sans MS">
+<body><font face="Helvetica">
 	<font style="font-size: 24px; font-weight: bolder;">
 		<a name="title">PocketMine-MP Plugin Making Tools</a>
 	</font>
