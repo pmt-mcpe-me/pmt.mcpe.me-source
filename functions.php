@@ -105,7 +105,7 @@ function deldir($dir){
 	rmdir($dir);
 }
 
-define("PRIV_DATA", SERVER_PATH . "privdata\\");
+define("PRIV_DATA", SERVER_PATH . "privdata/");
 @mkdir(PRIV_DATA);
 
 function randomClass($length, $init = "_"){

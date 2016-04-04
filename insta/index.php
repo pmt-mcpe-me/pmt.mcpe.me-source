@@ -145,7 +145,7 @@ if(OPTIMIZE_ENABLED){
 				<br>
 				Languages:
 				<?php foreach($langs as $lang => $cnt): ?>
-					<span class="lang-data" title="<?= $cnt / $sum * 100 ?>%"
+					<span class="lang-data" title="<?= round($cnt / $sum * 100, 2) ?>%"
 					      style="font-size: <?= 50 + $cnt / $sum * 150 ?>%"><?= $lang ?></span>
 				<?php endforeach; ?><br>
 				<button onclick='window.open(<?= json_encode($gist["html_url"]) ?>);'>Open on GitHub Gist</button>
