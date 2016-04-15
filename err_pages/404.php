@@ -17,5 +17,5 @@
 
 <?php
 touch($log = "/var/www/404.log");
-file_put_contents($log, date(DATE_ATOM) . " | " . $_SERVER["REQUEST_URI"] . " | " . isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "no-referer", FILE_APPEND);
+file_put_contents($log, PHP_EOL . date(DATE_ATOM) . " | " . $_SERVER["REQUEST_URI"] . " | " . (isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "no-referer"), FILE_APPEND);
 ?>

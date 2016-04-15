@@ -1,5 +1,5 @@
 body{
-	margin: 20px 20%;
+	margin: 50px 20%;
 	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
 }
 header{
@@ -12,7 +12,7 @@ ul.gistlist{
 li.gistlistitem{
 	padding: 10px;
 	border: groove;
-	border-radius: 10%;
+	border-radius: 10px;
 }
 code{
 	font-family: monospace;
@@ -32,4 +32,7 @@ span.lang-data{
 }
 .title{
 	padding-bottom: 0;
+}
+hr{
+	padding-top: 0;
 }

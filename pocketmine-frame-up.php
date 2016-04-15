@@ -1,5 +1,5 @@
 <html><head><title>PocketMine Plugin Making Tools</title></head>
-<body><font face="Comic Sans MS">
+<body><font face="Helvetica">
 	<font style="font-size: 24px; font-weight: bolder;">
 		<a name="title">PocketMine-MP Plugin Making Tools</a>
 	</font>
@@ -11,7 +11,7 @@
 	<a href="https://github.com/PEMapModder/web-server-source/issues" target="_blank">the issue tracker</a>.
 	When you create a report, please provide as much information as possible.
 	<br>
-	This website is authored by <a href="https://github.com/PEMapModder">PEMapModder</a> (with help from many people) and is hosted by <a href="https://www.michael.yoo.id.au">sekjun9878</a>.
+	This website is authored by <a href="https://github.com/PEMapModder">PEMapModder</a> (with help from many people) and is hosted by <a href="https://www.techplayer.org" target="_blank">TechPlayer, LLC</a>.
 </font>
 <a name="bottom"></a>
 </body></html>
