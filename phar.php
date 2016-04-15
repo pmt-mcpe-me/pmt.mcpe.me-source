@@ -1,8 +1,13 @@
 <html>
 <head>
 	<title>Create phar</title>
+	<script>
+	function fillPmStub(){
+		document.getElementById("stubInput").value = '<?= "<?php" ?> define("pocketmine\\\\PATH", "phar://". __FILE__ ."/"); require_once("phar://". __FILE__ ."/src/pocketmine/PocketMine.php");  __HALT_COMPILER();';
+	}
+	</script>
 </head>
-<body><font face="Comic Sans MS">
+<body><font face="Helvetica">
 	<h1>Phar maker</h1>
 	<h3>How to use</h3>
 	<ol>
@@ -15,10 +20,11 @@
 		<p><input type="file" name="file"></p>
 		<p>Stub (Leave as default unless you know what it is):
 			<?php
-			echo "<input type=\"text\" name=\"stub\" value=\"";
+			echo '<input type="text" name="stub" value="';
 			echo '<?php __HALT_COMPILER();';
-			echo "\" size=\"32\">";
+			echo '" size="100" id="stubInput">';
 			?>
+			<button onclick="fillPmStub(); return false;">Use the PocketMine-MP.phar stub</button>
 		</p>
 		<p>Tune the plugin using the following methods: <br>
 			<input type="checkbox" name="tune_top_namespace_optimization">

@@ -1,8 +1,30 @@
 <?php
 include "functions.php";
 ?><html>
-<head><title>Phar extraction result</title></head>
-<body><font face="Comic Sans MS">
+<head>
+	<title>Phar extraction result</title>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var dl = $("#dlButton");
+			if(typeof pmt.agree.lock !== typeof undefined){
+				var agreeKey = "yes";
+				if(typeof pmt.agree.key !== typeof undefined){
+					agreeKey = pmt.agree.key;
+				}else{
+					agreeLock += "\nType \"yes\" if you agree with the above terms to continue";
+				}
+				if(prompt(pmt.agree.lock).toLowerCase() != agreeKey.toLowerCase()){
+					alert("You must agree with the terms to download the zip!");
+					window.location.replace("/unphar.php");
+					return;
+				}
+			}
+			dl.css("display", "block");
+		});
+	</script>
+</head>
+<body><font face="Helvetica">
 <?php
 if(!isset($_FILES["file"])){
 	http_response_code(400);
@@ -42,20 +64,23 @@ if($file["error"] !== 0){
 	goto end;
 }
 unphar_toZip($file["tmp_name"], $result, substr($file["name"], 0, -5));
+$pmt = [];
 /** @var string|null $tmpDir */
 /** @var string|null $zipPath */
 /** @var string|null $zipRelativePath */
 /** @var string|null $basename */
 /** @var bool $error */
 extract($result);
+if(!is_array($pmt)) $pmt = [];
 if($error){
 	goto end;
 }
 usage_inc("unphar", $timestamp);
+echo "<script>var pmt = " + json_encode($pmt) + ";</script>";
 echo <<<EOS
 <h1>Success</h1>
 <p>Phar has been successfully converted to zip.<br>
-Download the ZIP file <a href="$zipRelativePath">here</a>, or download with an alternative name:</p>
+Download the ZIP file <a id="dlButton" href="$zipRelativePath">here</a>, or download with an alternative name:</p>
 <p><i><font color="#2f4f4f">The altname download is currently not available.</font></i></p>
 <!--<iframe width="500" src="/data/dlPhar.php?path=$basename"></iframe>-->
 <p>The download link is available for <i>at least</i> <b>2 hours</b>.</p>

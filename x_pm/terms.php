@@ -1,4 +1,4 @@
-<?php include_once dirname(__FILE__) . "/functions.php"; ?>
+<?php include_once __DIR__ . "/functions.php"; ?>
 <html>
 <head>
 	<title>Terms of Service</title>

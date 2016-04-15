@@ -66,4 +66,28 @@ class InspectionResult{
 		echo "</ul>";
 		echo "</li>";
 	}
+	public function jsonResult(){
+		if(count($this->errors) > 0){
+			$status = "Error";
+		}elseif(count($this->warnings) > 0){
+			$status = "Warning";
+		}elseif(count($this->notices) > 0){
+			$status = "Notice";
+		}else{
+			$status = "Passed";
+		}
+		return [
+			"status" => $status,
+			"errors" => $this->errors,
+			"warnings" => $this->warnings,
+			"notices" => $this->notices,
+			"info" => $this->info
+		];
+	}
+	/**
+	 * @return mixed
+	 */
+	public function getName(){
+		return $this->name;
+	}
 }

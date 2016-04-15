@@ -17,31 +17,36 @@ class VarDumpParser{
 			$this->read(11);
 			return new RecursionVariable($this);
 		}
-		$type = strtolower(ltrim(trim($this->readUntil("(")), "&"));
-		$this->skip(1);
-		switch($type){
-			case "string":
-				$result = new StringVariable($this);
-				break;
-			case "bool":
-				$result = new BoolVariable($this);
-				break;
-			case "int":
-				$result = new IntVariable($this);
-				break;
-			case "float":
-				$result = new FloatVariable($this);
-				break;
-			case "object":
-				$result = new ObjectVariable($this);
-				break;
-			case "array":
-				$result = new ArrayVariable($this);
-				break;
-			case "*RECURSION*":
+		if($this->peek(4) === "NULL"){
+			$this->skip(4);
+			$result = new NullVariable($this);
+		}else{
+			$type = strtolower(ltrim(trim($this->readUntil("(")), "&"));
+			$this->skip(1);
+			switch($type){
+				case "string":
+					$result = new StringVariable($this);
+					break;
+				case "bool":
+					$result = new BoolVariable($this);
+					break;
+				case "int":
+					$result = new IntVariable($this);
+					break;
+				case "float":
+					$result = new FloatVariable($this);
+					break;
+				case "object":
+					$result = new ObjectVariable($this);
+					break;
+				case "array":
+					$result = new ArrayVariable($this);
+					break;
+				case "*RECURSION*":
 
-			default:
-				throw new \Exception("Unknown type '$type'");
+				default:
+					throw new \Exception("Unknown type '$type'");
+			}
 		}
 		$this->ltrim();
 		return $result;
