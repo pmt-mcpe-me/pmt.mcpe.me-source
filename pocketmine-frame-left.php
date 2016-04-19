@@ -1,3 +1,11 @@
+<?php
+include("lang/setlang.php");
+define('PACKAGE', 'pocketmine-frame-left');
+
+// gettext setting
+bindtextdomain(PACKAGE, 'lang'); // or $your_path/lang, ex: /var/www/test/lang
+textdomain(PACKAGE);
+?>
 <html>
 <head>
 	<style type="text/css">
@@ -22,18 +30,18 @@
 <body>
 <font face="Helvetica">
 	<ul>
-		<li><a href="/phar.php" target="content">Zip to Phar converter</a></li>
-		<li><a href="/unphar.php" target="content">Phar to Zip converter</a></li>
-		<li><a href="/insta/" target="_blank">Instant GistPlugin Generator+Converter</a></li>
+		<li><a href="/phar.php" target="content"><?php echo _('Zip to Phar converter'); ?></a></li>
+		<li><a href="/unphar.php" target="content"><?php echo _('Phar to Zip converter'); ?></a></li>
+		<li><a href="/insta/" target="_blank"><?php echo _('Instant GistPlugin Generator+Converter'); ?></a></li>
 		<!--		<li><a href="/data/builds/" target="content">Development build archive of some plugins</a></li>-->
-		<li><a href="/varDump.php" target="content"><code>var_dump()</code> viewer (<code>xdebug</code>-style dumps are
-				not supported yet)</a></li>
-		<li><a href="/crashdump/" target="content">PocketMine Crash Dump parsing</a></li>
-		<li><a href="/pmb/" target="content">PocketMine phar build archive</a></li>
-		<li><a href="/api2/" target="content">Plugin API 2.0.0 Injector</a></li>
-		<li><a href="#" class="disabled"><strong>[W.I.P.]</strong> Plugin Generator</a></li>
+		<li><a href="/varDump.php" target="content"><?php echo _('<code>var_dump()</code> viewer (<code>xdebug</code>-style dumps are
+				not supported yet)'); ?></a></li>
+		<li><a href="/crashdump/" target="content"><?php echo _('PocketMine Crash Dump parsing'); ?></a></li>
+		<li><a href="/pmb/" target="content"><?php echo _('PocketMine phar build archive'); ?></a></li>
+		<li><a href="/api2/" target="content"><?php echo _('Plugin API 2.0.0 Injector'); ?></a></li>
+		<li><a href="#" class="disabled"><?php echo _('<strong>[W.I.P.]</strong> Plugin Generator'); ?></a></li>
 	</ul>
-	<input type="button" value="Reload content frame" onclick="parent.content.location.reload()">
+	<input type="button" value="<?php echo _('Reload content frame'); ?>" onclick="parent.content.location.reload()">
 	<br>
 </font>
 </body>

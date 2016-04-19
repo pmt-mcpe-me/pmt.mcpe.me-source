@@ -1,11 +1,19 @@
 <?php
+include("lang/setlang.php");
+define('PACKAGE', 'phar');
+
+// gettext setting
+bindtextdomain(PACKAGE, 'lang'); // or $your_path/lang, ex: /var/www/test/lang
+textdomain(PACKAGE);
+?>
+<?php
 include "functions.php";
 $jsonExpected = $_SERVER["HTTP_ACCEPT"] === "application/json";
 if(!$jsonExpected):
 ?>
 <html>
 <head>
-	<title>Phar creation result</title>
+	<title><?php echo _('Phar creation result'); ?></title>
 </head>
 <body>
 <font face="Comic Sans MS">
@@ -24,8 +32,8 @@ if(!$jsonExpected):
 	}
 	$file = $_FILES["file"];
 	if($file["error"] !== 0){
-		echo "<h1>Failure</h1>";
-		echo "Invalid upload: ";
+		echo _("<h1>Failure</h1>");
+		echo _("Invalid upload: ");
 		switch($err = $file["error"]){
 			case UPLOAD_ERR_INI_SIZE:
 				$errMsg = "file is too large UPLOAD_ERR_INI_SIZE($err)";
@@ -64,8 +72,8 @@ if(!$jsonExpected):
 	$result = phar_buildFromZip($file["tmp_name"], substr($file["name"], 0, -4), $args);
 	if($result["error"] !== MAKEPHAR_ERROR_NO){
 		if(!$jsonExpected){
-			echo "<h1>Failed to create phar</h1>";
-			echo "<p>Error: ";
+			echo _("<h1>Failed to create phar</h1>");
+			echo _("<p>Error: ");
 			echo $MAKEPHAR_ERROR_MESSAGES[$result["error"]];
 			echo "<br>";
 			echo "<code>" . $result["error_name"] . "(" . $result["erorr_id"] . ")</code>: ";
@@ -139,20 +147,20 @@ if(!$jsonExpected):
 <iframe width="500" src="/data/dlPhar.php?path=$basename"></iframe>
 <p>The download link is available for at least two hours.</p>
 EOP;
-	echo "<p>In the past $itv, $cnt phars have been created.</p>";
+	echo _("<p>In the past $itv, $cnt phars have been created.</p>");
 	echo "<hr>";
-	echo "<h2>Inspections</h2>";
+	echo _("<h2>Inspections</h2>");
 	echo "<ul>";
 	foreach($inspections as $inspection){
 		$inspection->run()->htmlEcho();
 	}
 	echo "</ul>";
-	echo "<p>End of inspections</p>";
+	echo _("<p>End of inspections</p>");
 	?>
-	<p>You are also recommended to check the phar file at <a href="http://www.pocketmine.net/pluginReview.php"
+	<p><?php echo _('You are also recommended to check the phar file at <a href="http://www.pocketmine.net/pluginReview.php"
 	                                                         target="_blank">the official PocketMine plugin reviewing
 			tool</a> to check your bad practices and
-		the permissions that your plugin uses.</p>
+		the permissions that your plugin uses.'); ?></p>
 	<?php the_end: ?>
 </font></body>
 </html>
