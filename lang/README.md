@@ -1,3 +1,5 @@
 We hope that you can help translating pmt.mcpe.me into your locale for us.
-§Ú­ÌÀH®ÉÅwªï±z¬° pmt.mcpe.me °^ÄmÂ½Ä¶¡I
+
+æˆ‘å€‘éš¨æ™‚æ­¡è¿æ‚¨ç‚º pmt.mcpe.me è²¢ç»ç¿»è­¯ï¼
+
 [https://github.com/pmt-mcpe-me/pmt.mcpe.me-languages](https://github.com/pmt-mcpe-me/pmt.mcpe.me-languages)
