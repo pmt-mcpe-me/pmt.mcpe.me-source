@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pmt.mcpe.me page Languages\n"
+"POT-Creation-Date: 2016-04-17 09:06+0800\n"
+"PO-Revision-Date: 2016-04-20 19:11+0800\n"
+"Language-Team: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: errMsg\n"
+"Last-Translator: \n"
+"Language: zh_TW\n"
+"X-Poedit-SearchPath-0: phar-result.php\n"
+
+#: phar-result.php:16
+msgid "Phar creation result"
+msgstr "Phar打包結果"
+
+#: phar-result.php:35
+msgid "<h1>Failure</h1>"
+msgstr "<h1>失敗</h1>"
+
+#: phar-result.php:36
+msgid "Invalid upload: "
+msgstr "無效的上傳："
+
+#: phar-result.php:75
+msgid "<h1>Failed to create phar</h1>"
+msgstr "<h1>無法打包成Phar</h1>"
+
+#: phar-result.php:76
+msgid "<p>Error: "
+msgstr "<p>錯誤: "
+
+#: phar-result.php:152
+msgid "<h2>Inspections</h2>"
+msgstr "<h2>檢查</h2>"
+
+#: phar-result.php:158
+msgid "<p>End of inspections</p>"
+msgstr "<p>檢查結束</p>"
+
+#: phar-result.php:160
+msgid ""
+"You are also recommended to check the phar file at <a href=\"http://www."
+"pocketmine.net/pluginReview.php\" target=\"_blank\">the official PocketMine "
+"plugin reviewing tool</a> to check your bad practices and the permissions "
+"that your plugin uses."
+msgstr ""
+"建議您去<a href=\"http://www.pocketmine.net/pluginReview.php\" target="
+"\"_blank\">PocketMine官方插件審查工具</a>檢查您的插件是否有問題以及多餘語法"
