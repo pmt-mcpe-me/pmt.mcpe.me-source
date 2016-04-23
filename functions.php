@@ -43,7 +43,7 @@ $MAKEPHAR_ERROR_MESSAGES = [
 	MAKEPHAR_ERROR_NO_PLUGIN_YML => "Cannot find <code>plugin.yml</code> anywhere inside the ZIP"
 ];
 spl_autoload_register(function($class){
-	$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php";
+	$file = __DIR__ . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . ".php";
 	if(is_file($file)){
 		require_once $file;
 	}
@@ -105,7 +105,7 @@ function deldir($dir){
 	rmdir($dir);
 }
 
-define("PRIV_DATA", SERVER_PATH . "privdata\\");
+define("PRIV_DATA", SERVER_PATH . "privdata/");
 @mkdir(PRIV_DATA);
 
 function randomClass($length, $init = "_"){
@@ -461,7 +461,12 @@ function unphar_toZip($tmpName, &$result, $name = ""){
 			$rel = substr($file, strlen($tmpDir) + 1);
 			$zip->addFile($file, str_replace("\\", "/", $rel));
 		}
-		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT));
+		$metadata = $phar->getMetadata();
+		if(isset($metadata["me.mcpe.pmt"])){
+			$result["pmt"] = $metadata["me.mcpe.pmt"];
+			$metadata["me.mcpe.pmt"] = "<pmt.mcpe.me metadata hidden>";
+		}
+		$zip->setArchiveComment(json_encode($phar->getMetadata(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 		$zip->close();
 	}
 	catch(Exception $e){

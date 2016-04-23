@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pmt.mcpe.me page Languages\n"
+"POT-Creation-Date: 2016-04-14 08:40+0800\n"
+"PO-Revision-Date: 2016-04-14 08:45+0800\n"
+"Last-Translator: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"Language-Team: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: errMsg\n"
+"X-Poedit-SearchPath-0: phar-result.php\n"
+
+#: phar-result.php:16
+msgid "Phar creation result"
+msgstr "Phar creation result"
+
+#: phar-result.php:35
+msgid "<h1>Failure</h1>"
+msgstr "<h1>Failure</h1>"
+
+#: phar-result.php:36
+msgid "Invalid upload: "
+msgstr "Invalid upload: "
+
+#: phar-result.php:75
+msgid "<h1>Failed to create phar</h1>"
+msgstr "<h1>Failed to create phar</h1>"
+
+#: phar-result.php:76
+msgid "<p>Error: "
+msgstr "<p>Error: "
+
+#: phar-result.php:152
+msgid "<h2>Inspections</h2>"
+msgstr "<h2>Inspections</h2>"
+
+#: phar-result.php:158
+msgid "<p>End of inspections</p>"
+msgstr "<p>End of inspections</p>"
+
+#: phar-result.php:160
+msgid ""
+"You are also recommended to check the phar file at <a href=\"http://www."
+"pocketmine.net/pluginReview.php\" target=\"_blank\">the official PocketMine "
+"plugin reviewing tool</a> to check your bad practices and the permissions "
+"that your plugin uses."
+msgstr ""
+"You are also recommended to check the phar file at <a href=\"http://www."
+"pocketmine.net/pluginReview.php\" target=\"_blank\">the official PocketMine "
+"plugin reviewing tool</a> to check your bad practices and the permissions "
+"that your plugin uses."

@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pmt.mcpe.me page Languages\n"
+"POT-Creation-Date: 2016-04-17 11:11+0800\n"
+"PO-Revision-Date: 2016-04-17 11:13+0800\n"
+"Language-Team: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Last-Translator: \n"
+"Language: ja_JP\n"
+"X-Poedit-SearchPath-0: varDump.php\n"
+
+#: varDump.php:9
+msgid "var_dump parser"
+msgstr "var_dump 構文解析ツール"
+
+#: varDump.php:11
+msgid "<code>var_dump</code> parser"
+msgstr "<code>var_dump</code> 構文解析ツール"
+
+#: varDump.php:12
+msgid ""
+"&nbsp;Please paste your <code>var_dump</code> output below and click the "
+"submit button."
+msgstr ""
+"&nbsp;貼り付けてください <code>var_dump</code> 以下に出力し、送信ボタンを"
+"クリックします。"
+
+#: varDump.php:13
+msgid "Warning:"
+msgstr "警告："
+
+#: varDump.php:13
+msgid "Make sure you don't convert line endings from"
+msgstr "あなたから行末を変換しないことを確認してください"
+
+#: varDump.php:13
+msgid "to"
+msgstr "に"
+
+#: varDump.php:13
+msgid "or from"
+msgstr "またはから"

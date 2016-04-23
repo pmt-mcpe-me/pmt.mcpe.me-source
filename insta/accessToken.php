@@ -11,7 +11,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
 curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
 curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, ["client_id" => file_get_contents("/var/www/cid.txt"), "client_secret" => file_get_contents("/var/www/secret.txt"), "code" => $_REQUEST["code"], ]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, ["client_id" => trim(file_get_contents("/var/www/cid.txt")), "client_secret" => trim(file_get_contents("/var/www/secret.txt")), "code" => $_REQUEST["code"], ]);
 curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ["User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0 pmt.mcpe.me-insta/1.0", "Accept: application/json"]);

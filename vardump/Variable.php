@@ -9,6 +9,7 @@ abstract class Variable{
 	const TYPE_FLOAT = "<font color='#FF0000'>Float</font>";
 	const TYPE_ARRAY = "<font color='#00FFFF'>Array</font>";
 	const TYPE_OBJECT = "<font color='#D0D000'>Object</font>";
+	const TYPE_NULL = "<font color='#808080FFFF'>Null</font>";
 	public abstract function __construct(VarDumpParser $parser);
 	public abstract function presentInHtml();
 }

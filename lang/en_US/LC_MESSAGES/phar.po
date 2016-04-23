@@ -1,0 +1,185 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pmt.mcpe.me page Languages\n"
+"POT-Creation-Date: 2016-04-13 09:55+0800\n"
+"PO-Revision-Date: 2016-04-13 09:56+0800\n"
+"Last-Translator: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"Language-Team: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: phar.php\n"
+
+#: phar.php:6
+msgid "Create phar"
+msgstr ""
+
+#: phar.php:14
+msgid "Phar maker"
+msgstr "Phar maker"
+
+#: phar.php:15
+msgid "How to use"
+msgstr "How to use"
+
+#: phar.php:17
+msgid "Write your plugin, of course :D"
+msgstr "Write your plugin, of course :D"
+
+#: phar.php:18
+msgid "Put your files in the correct structure (according to namespaces, etc.)"
+msgstr ""
+"Put your files in the correct structure (according to namespaces, etc.)"
+
+#: phar.php:19
+msgid ""
+"Create a ZIP file and throw your structure into it. You can put it anywhere "
+"inside the ZIP file, but only the folder with plugin.yml (and subfolders) "
+"will be included."
+msgstr ""
+"Create a ZIP file and throw your structure into it. You can put it anywhere "
+"inside the ZIP file, but only the folder with plugin.yml (and subfolders) "
+"will be included."
+
+#: phar.php:20
+msgid "Upload that file below :)"
+msgstr "Upload that file below :)"
+
+#: phar.php:24
+msgid "Stub (Leave as default unless you know what it is):"
+msgstr "Stub (Leave as default unless you know what it is):"
+
+#: phar.php:30
+msgid "Use the PocketMine-MP.phar stub"
+msgstr "Use the PocketMine-MP.phar stub"
+
+#: phar.php:32
+msgid "Tune the plugin using the following methods:"
+msgstr "Tune the plugin using the following methods:"
+
+#: phar.php:34
+msgid ""
+"Optimize constant references by adding a <code>\\</code> prefix to indicate "
+"that it is a top namespace reference."
+msgstr ""
+"Optimize constant references by adding a <code>\\</code> prefix to indicate "
+"that it is a top namespace reference."
+
+#: phar.php:35
+msgid "Obfuscate code"
+msgstr "Obfuscate code"
+
+#: phar.php:37
+msgid ""
+"Warning: Using any of the tunes may stripe out all the comments in your code "
+"<em>except</em> PHP doc comments or line comments."
+msgstr ""
+"Warning: Using any of the tunes may stripe out all the comments in your code "
+"<em>except</em> PHP doc comments or line comments."
+
+#: phar.php:39
+msgid "Carry out the following inspections too:"
+msgstr "Carry out the following inspections too:"
+
+#: phar.php:40
+msgid "Check classpath"
+msgstr "Check classpath"
+
+#: phar.php:41
+msgid "Scan for bad practice"
+msgstr "Scan for bad practice"
+
+#: phar.php:42
+msgid "Syntax error lint scan"
+msgstr "Syntax error lint scan"
+
+#: phar.php:44
+msgid "create phar"
+msgstr "create phar"
+
+#: phar.php:46
+msgid ""
+"New: use the frames page <a href=\"pm.php\" target=\"_parent\">here</a> if "
+"you are not already using."
+msgstr ""
+"New: use the frames page <a href=\"pm.php\" target=\"_parent\">here</a> if "
+"you are not already using."
+
+#: phar.php:48
+msgid ""
+"Disclaimer:\n"
+"\tThis service is provided absolutely free of charge and is not guaranteed "
+"always available.\n"
+"\tThis page (phar.php) extracts ZIP files uploaded by users into a location "
+"in the server's filesystem that is not available to users, executes tuning "
+"and packs the result into a *.phar file that is available for public "
+"download. This process is 100% automated.\n"
+"\tThis website (http://pmt.mcpe.me) is in no ways affiliated with PocketMine-"
+"MP (http://pocketmine.net), an open-source project developed by the "
+"PocketMine Team, or Minecraft: PE, a game software developed by Mojang.\n"
+"\tWe (owner of this website) are not to be held responsible for any acts "
+"related to copyright breaches and other illegal acts. All contents in the "
+"downloaded phar are either generated using the uploaded file or the software "
+"used for this website."
+msgstr ""
+"Disclaimer:\n"
+"\tThis service is provided absolutely free of charge and is not guaranteed "
+"always available.\n"
+"\tThis page (phar.php) extracts ZIP files uploaded by users into a location "
+"in the server's filesystem that is not available to users, executes tuning "
+"and packs the result into a *.phar file that is available for public "
+"download. This process is 100% automated.\n"
+"\tThis website (http://pmt.mcpe.me) is in no ways affiliated with PocketMine-"
+"MP (http://pocketmine.net), an open-source project developed by the "
+"PocketMine Team, or Minecraft: PE, a game software developed by Mojang.\n"
+"\tWe (owner of this website) are not to be held responsible for any acts "
+"related to copyright breaches and other illegal acts. All contents in the "
+"downloaded phar are either generated using the uploaded file or the software "
+"used for this website."
+
+#~ msgid "Disclaimer:"
+#~ msgstr "Disclaimer:"
+
+#~ msgid ""
+#~ "This service is provided absolutely free of charge and is not guaranteed "
+#~ "always available."
+#~ msgstr ""
+#~ "This service is provided absolutely free of charge and is not guaranteed "
+#~ "always available."
+
+#~ msgid ""
+#~ "This page (phar.php) extracts ZIP files uploaded by users into a location "
+#~ "in the server's filesystem that is not available to users, executes "
+#~ "tuning and packs the result into a *.phar file that is available for "
+#~ "public download. This process is 100% automated."
+#~ msgstr ""
+#~ "This page (phar.php) extracts ZIP files uploaded by users into a location "
+#~ "in the server's filesystem that is not available to users, executes "
+#~ "tuning and packs the result into a *.phar file that is available for "
+#~ "public download. This process is 100% automated."
+
+#~ msgid ""
+#~ "This website (http://pmt.mcpe.me) is in no ways affiliated with "
+#~ "PocketMine-MP (http://pocketmine.net), an open-source project developed "
+#~ "by the PocketMine Team, or Minecraft: PE, a game software developed by "
+#~ "Mojang."
+#~ msgstr ""
+#~ "This website (http://pmt.mcpe.me) is in no ways affiliated with "
+#~ "PocketMine-MP (http://pocketmine.net), an open-source project developed "
+#~ "by the PocketMine Team, or Minecraft: PE, a game software developed by "
+#~ "Mojang."
+
+#~ msgid ""
+#~ "We (owner of this website) are not to be held responsible for any acts "
+#~ "related to copyright breaches and other illegal acts. All contents in the "
+#~ "downloaded phar are either generated using the uploaded file or the "
+#~ "software used for this website."
+#~ msgstr ""
+#~ "We (owner of this website) are not to be held responsible for any acts "
+#~ "related to copyright breaches and other illegal acts. All contents in the "
+#~ "downloaded phar are either generated using the uploaded file or the "
+#~ "software used for this website."

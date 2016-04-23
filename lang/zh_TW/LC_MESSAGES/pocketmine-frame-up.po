@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pmt.mcpe.me page Languages\n"
+"POT-Creation-Date: 2016-04-17 09:33+0800\n"
+"PO-Revision-Date: 2016-04-20 19:21+0800\n"
+"Language-Team: pmt.mcpe.me management organization <admin@pmt.mcpe.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Last-Translator: \n"
+"Language: zh_TW\n"
+"X-Poedit-SearchPath-0: pocketmine-frame-up.php\n"
+
+#: pocketmine-frame-up.php:9
+msgid "PocketMine Plugin Making Tools"
+msgstr "PocketMine 插件開發工具"
+
+#: pocketmine-frame-up.php:12
+msgid "PocketMine-MP Plugin Making Tools"
+msgstr "PocketMine-MP 插件開發工具"
+
+#: pocketmine-frame-up.php:15
+msgid ""
+"This project is open-source on\n"
+"\t<a href=\"https://github.com/PEMapModder/web-server-source\" target="
+"\"_blank\">GitHub</a>."
+msgstr ""
+"此專案開源在\n"
+"\t<a href=\"https://github.com/PEMapModder/web-server-source\" target="
+"\"_blank\">GitHub</a>."
+
+#: pocketmine-frame-up.php:18
+msgid ""
+"Please feel free to report any bugs to\n"
+"\t<a href=\"https://github.com/PEMapModder/web-server-source/issues\" target="
+"\"_blank\">the issue tracker</a>.\n"
+"\tWhen you create a report, please provide as much information as possible."
+msgstr ""
+"請隨時報告任何bug \n"
+"\t<a href=\"https://github.com/PEMapModder/web-server-source/issues\" target="
+"\"_blank\">回報問題</a>.\n"
+"\t請盡可能提供資訊以供參考及修復"
+
+#: pocketmine-frame-up.php:22
+msgid ""
+"This website is authored by <a href=\"https://github.com/PEMapModder"
+"\">PEMapModder</a> (with help from many people) and is hosted by <a href="
+"\"https://www.techplayer.org\" target=\"_blank\">TechPlayer, LLC</a>."
+msgstr ""
+"本網站由 <a href=\"https://github.com/PEMapModder\">PEMapModder</a>製作 (與很"
+"多人的幫助) ,由 <a href=\"https://www.techplayer.org\" target=\"_blank"
+"\">TechPlayer, LLC</a>主導"
