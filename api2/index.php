@@ -130,7 +130,7 @@ if(isset($_FILES["phar"])){
 	</li>
 	<li>If errors happen after using phars downloaded from this page, unintsall it immediately.</li>
 	<li>Click <span
-			onclick='alert("Thanks for carefully reading the caution!"); document.getElementById("upload").disabled = false;'>these three words</span>
+			onclick='alert("Thanks for carefully reading the caution!"); document.getElementById("upload").disabled = false;'><i>these three words</i></span>
 		if you have read the above.
 	</li>
 </ul>
