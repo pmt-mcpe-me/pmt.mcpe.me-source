@@ -154,7 +154,7 @@ if(isset($_FILES["phar"])){
 			</ul>
 		</li>
 	</ul>
-	<p><input type="submit" id="upload" value="Inject" disabled></p>
+	<p><input type="submit" id="upload" value="Inject"></p>
 </form>
 </body>
 </html>
