@@ -168,7 +168,7 @@ if(OPTIMIZE_ENABLED){
 	      onsubmit="setTimeout(window.location.reload, 5000)">
 		Plugin Name: <input type="text" name="name" placeholder="Only put A-Z a-z 0-9 or underscore!"><br>
 		Plugin Version: <input type="text" name="version" value="1.0"><br>
-		PocketMine API Version: <input type="text" name="api" value="1.12.0"><br>
+		PocketMine API Version: <input type="text" name="api" value="2.1.0"><br>
 		<input type="checkbox" name="config"> Generate config code<br>
 		Generate <input type="number" name="skeletons" value="0"> dummy class(es)<br>
 		Generate <input type="number" name="tasks" value="0"> dummy task(s)<br>
